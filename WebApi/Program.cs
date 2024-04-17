@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApiContexts>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("WebApi_Database"))
+builder.Services.AddDbContext<ApiContexts>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("WebApi_Database")));
 
 
 var app = builder.Build();
