@@ -2,6 +2,7 @@
 
 public class CourseEntity
 {
+    public int Id { get; set; }
     public bool isBestseller { get; set; }
     public string Image { get; set; } = null!;
     public string Title { get; set; } = null!;
