@@ -1,14 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Infrastructure.Contexts;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CoursesController : ControllerBase
+public class CoursesController(ApiContexts context) : ControllerBase
 {
+    private readonly ApiContexts _context = context;
+
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        return Ok();
+        var courses = await _context.Courses.ToListAsync();
+        return Ok(courses);
     }
 }
